@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const scoreDisplay = document.querySelector('span')
   const startBtn = document.querySelector('.start')
 
-  const width = 10
+  const width = 40
   let currentIndex = 0 //primeira div do nosso grid
   let appleIndex = 0 //primeira div do nosso grid
   let currentSnake = [2, 1, 0] // Nossa div 2 sendo a cabeça, a 0 sendo o rabo e a 1 o corpo.
@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       currentSnake.push(tail)
       randomApple()
       score++
+      speed -= 0.05
       scoreDisplay.textContent = score
       clearInterval(interval)
       intervalTime = intervalTime * speed
@@ -82,8 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (e.keyCode === 40) {
       direction = +width // if we press the down arrow, the snake will go on ten divs
     }
-
-    document.addEventListener('keyup', control)
-    startBtn.addEventListener('click', startGame)
   }
+  document.addEventListener('keyup', control)
+  startBtn.addEventListener('click', startGame)
 })
